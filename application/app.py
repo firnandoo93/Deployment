@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 import joblib
 import string
 import requests
@@ -14,11 +15,13 @@ from sklearn.svm import SVC
 from streamlit_lottie import st_lottie
 
 
+current_directory = os.path.dirname(__file__)
+os.chdir(current_directory)
 # Load trained model
-svm_model = joblib.load('svm_model.joblib')
+svm_model = joblib.load(os.path.join(current_directory, 'svm_model.joblib'))
 
 # Load TF-IDF vectorizer
-vectorizer = joblib.load('tfidf_vectorizer.joblib')
+vectorizer = joblib.load(os.path.join(current_directory, 'tfidf_vectorizer.joblib'))
 
 
 def preprocess_text(text):
