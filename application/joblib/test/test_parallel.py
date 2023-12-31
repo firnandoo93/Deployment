@@ -1768,7 +1768,7 @@ def _check_numpy_threadpool_limits():
     # implementation is actually used so as to force its initialization.
     a = np.random.randn(100, 100)
     np.dot(a, a)
-    from threadpoolctl import threadpool_info
+    from application.threadpoolctl import threadpool_info
     return threadpool_info()
 
 
